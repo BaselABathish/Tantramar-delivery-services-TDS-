@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    {% for vendor in vendors %}
+        <div class = 'cards-container'>
+    <div class="card">
+    <div class="card-image">
+        <img src="{{ vendor.logo.url }}" alt="Item Image">
+    </div>
+    <div class="card-content">
+        <a class="card-title" href="/{{ vendor.user.username }}/catalogue">{{ vendor }}</a>
+        <p class="card-description">{{ vendor.description }}</p>
+        <div class="card-rating">
+            <span>Score: </span>{{ vendor.rating }}
+            <!--★★★★☆  -->
+        </div>
+    </div>
+</div>
+</div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,218 @@
+:root {
+  --primary-color: #ff6600;
+  --secondary-color: #ffffff;
+  --text-color: #333;
+}
+
+/* Make html and body full height and set font */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+/* Page container as flex column to push footer down */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ensures footer sticks to bottom when content is short */
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover { color: #e65c00; }
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+header .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: none; /* mobile-first */
+  gap: 1.5rem;
+}
+.desktop-nav a { font-weight: 500; }
+
+/* Mobile Menu Button */
+#mobile-menu-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Mobile Menu (hidden by default, shown with .show) */
+#mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--secondary-color);
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+#mobile-menu.show { display: flex; }
+
+/* Main Content grows and is centered with max width */
+main {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+  #mobile-menu,
+  #mobile-menu-btn { display: none; }
+  .desktop-nav { display: flex; }
+}
+
+/* ====== Card styles (item card) ====== */
+.card {
+  background-color: var(--secondary-color);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  width: 300px;
+  margin: 1rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+.card-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.card-content { padding: 0.9rem 1rem; }
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 0.4rem 0;
+}
+.card-description {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  margin: 0 0 0.6rem 0;
+}
+.card-rating {
+  font-size: 1rem;
+  color: #ffb400; /* gold stars */
+}
+
+/* Cards container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.5rem auto 2rem;
+  max-width: 1100px;
+}
+
+/* ====== Vendor info block ====== */
+.vendor-info {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  margin: 1.25rem auto;
+  max-width: 900px;
+  background-color: var(--secondary-color);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.vendor-logo img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 3px solid var(--primary-color);
+  display: block;
+}
+.vendor-details { flex: 1; min-width: 0; }
+.vendor-name {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.vendor-meta {
+  margin-top: 0.35rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+.vendor-description {
+  margin-top: 0.6rem;
+  color: var(--text-color);
+  line-height: 1.45;
+  font-size: 0.98rem;
+}
+.vendor-rating {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  color: #ffb400;
+}
+.vendor-rating .rating-value {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 600px) {
+  .vendor-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+  .vendor-logo img {
+    width: 120px;
+    height: 120px;
+  }
+  .vendor-details { width: 100%; }
+  .vendor-meta { justify-content: center; }
+  .cards-container { justify-content: center; }
+}

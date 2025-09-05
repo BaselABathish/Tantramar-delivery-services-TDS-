@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<section class="vendor-info">
+  <div class="vendor-logo">
+    <img src="{{ vendor.logo.url }}" alt="{{ vendor.user.username }} logo">
+  </div>
+
+  <div class="vendor-details">
+    <h2 class="vendor-name">{{ vendor.user.username }}</h2>
+
+    <div class="vendor-meta">
+      <span class="vendor-type">Type: {{ vendor.type }}</span>
+      <span class="vendor-location">Location: {{ vendor.location }}</span>
+    </div>
+
+    <p class="vendor-description">
+      {{ vendor.description|default:"Short description about the vendor goes here. They specialize in great products and excellent service." }}
+    </p>
+
+    <div class="vendor-rating" aria-label="{{ vendor.rating }} out of 5">
+      <span class="vendor-stars" aria-hidden="true">
+        {% for i in "12345" %}
+          {% if forloop.counter <= vendor.rating %}
+            ★
+          {% else %}
+            ☆
+          {% endif %}
+        {% endfor %}
+      </span>
+      <span class="rating-value">{{ vendor.rating|default:"0" }}.0</span>
+    </div>
+  </div>
+</section>
+
+
+
+
+    {% for item in items %}
+        <h1>{{ item }}</h1>
+    {% endfor %}
+
+{% endblock %}

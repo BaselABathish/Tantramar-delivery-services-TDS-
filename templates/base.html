@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}TDS{% endblock %}</title>
+<title>{% block title %}TDS{% endblock %}</title>
+<link rel="icon" type="image/png" href="{% static 'logo.png' %}">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,12 +17,18 @@
   <div class="page-container">
     <!-- Header -->
     <header>
-      <div class="logo">TDS</div>
+        <div class="logo"><a href = '/'> TDS</a></div>
 
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
+          {% if signed_in %}
+          <a href="/login">My profile</a>
+          {% else %}
+          <a href="/login">Log in</a>
+          {% endif %}
+          <a href="/vendor_register">**I'm a vendor**</a>
       </nav>
 
       <button id="mobile-menu-btn"

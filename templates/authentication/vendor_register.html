@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Vendor Signup{% endblock %}
+
+{% block content %}
+<style>
+  /* Dark theme overrides for this page */
+  body, main, .page-container {
+    background-color: #121212 !important;
+    color: #f5f5f5 !important;
+  }
+
+  header, footer {
+    background-color: #1e1e1e !important;
+    color: #f5f5f5 !important;
+  }
+
+  header .logo a, .desktop-nav a, footer p {
+    color: #f5f5f5 !important;
+  }
+
+  .desktop-nav a.vendor-btn {
+    background-color: #0d1b4c !important;
+    color: #fff !important;
+  }
+
+  .desktop-nav a.vendor-btn:hover {
+    background-color: #0a153b !important;
+    color: #fff !important;
+  }
+
+  a.email-link {
+    color: #ff6600;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  a.email-link:hover {
+    color: #e65c00;
+  }
+
+  main h1 {
+    color: #ff6600;
+  }
+
+  main p {
+    color: #f5f5f5;
+  }
+</style>
+
+<main style="min-height: 80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:4rem 1.5rem;">
+    <h1>Thank you for your interest!</h1>
+    <p>
+        We appreciate your interest in signing up as a vendor with Tantramar Delivery Services.<br>
+        Please contact us at 
+        <a href="mailto:vendors@tds.com" class="email-link">vendors@tds.com</a>
+        and we’ll guide you through the next steps.
+    </p>
+</main>
+{% endblock %}

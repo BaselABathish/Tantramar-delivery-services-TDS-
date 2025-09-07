@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width:400px; margin:2rem auto;">
+    <form method="post">
+        {% csrf_token %}
+        <h2 style="text-align:center; color: var(--primary-color); margin-bottom:1.5rem;">Create Account</h2>
+        {{ form }}
+        <button type="submit" class="btn-submit" style="width:100%; margin-top:1rem;">Register</button>
+    </form>
+</div>
+{% endblock %}
